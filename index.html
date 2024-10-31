@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <!-- Meta tags essenciais -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conversor de Imagens em Pixel Art</title>
+  <meta name="description" content="Nossa ferramenta online gratuita converte suas fotos em pixel art, trazendo o charme nostálgico dos videogames vintage para suas imagens.">
+
+  <!-- SlimSelect CSS via CDN -->
+  <link href="css/slimselect.css" rel="stylesheet">
+
+  <!-- CSS Personalizado -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <!-- Cabeçalho -->
+  <header class="header">
+    <h1>Conversor de Imagens em Pixel Art</h1>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main class="container">
+    <!-- Canvas de Pixel Art -->
+    <div class="canvas-container">
+      <canvas id="pixelitcanvas"></canvas>
+    </div>
+
+    <!-- Controles -->
+    <div class="controls-container">
+      <h2>Configurações</h2>
+
+      <!-- Upload da Imagem -->
+      <div class="control-group">
+        <label for="pixlInput">Upload da Imagem</label>
+        <input type="file" id="pixlInput" accept="image/*">
+      </div>
+
+      <!-- Tamanho do Bloco -->
+      <div class="control-group">
+        <label for="blocksize">Tamanho do Bloco: <span id="blockvalue">7</span></label>
+        <input type="range" min="2" max="25" value="7" id="blocksize">
+      </div>
+
+      <!-- Escala de Cinza -->
+      <div class="control-group checkbox-group">
+        <input type="checkbox" id="greyscale">
+        <label for="greyscale" class="checkbox-label">Escala de Cinza</label>
+      </div>
+
+      <!-- Paleta de Cores -->
+      <div class="control-group checkbox-group">
+        <input type="checkbox" id="palette">
+        <label for="palette" class="checkbox-label">Paleta de Cores</label>
+      </div>
+
+      <!-- Altura e Largura Máximas -->
+      <div class="control-group">
+        <label for="maxheight">Altura Máxima (px)</label>
+        <input type="number" id="maxheight" placeholder="Ex: 500">
+      </div>
+      <div class="control-group">
+        <label for="maxwidth">Largura Máxima (px)</label>
+        <input type="number" id="maxwidth" placeholder="Ex: 500">
+      </div>
+
+      <!-- Seletor de Paleta -->
+      <div class="control-group">
+        <label for="paletteselector">Selecione a Paleta</label>
+        <select name="paletteselector" id="paletteselector">
+          <option value="">-- Selecione uma paleta --</option>
+        </select>
+        <!-- Contêiner para exibir as cores da paleta selecionada -->
+        <div class="palette-display" id="palettecolor"></div>
+      </div>
+
+      <!-- Botão de Download -->
+      <div class="control-group">
+        <button id="downloadimage" class="btn">Baixar Imagem</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Imagem de Exemplo Oculta -->
+  <img src="img/sample.png" id="pixelitimg" alt="Imagem de Exemplo" style="display: none;">
+
+  <!-- Loader -->
+  <div class="loader">
+    <div class="lds-spinner">
+      <div></div><div></div><div></div><div></div><div></div><div></div>
+      <div></div><div></div><div></div><div></div><div></div><div></div>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    &copy; <script>document.write(new Date().getFullYear())</script>
+    <a href="https://github.com/giventofly/pixelit">Pixelit</a> – Licenciado sob a <a href="https://github.com/giventofly/pixelit?tab=MIT-1-ov-file#readme">licença MIT</a>.
+  </footer>
+
+  <!-- Scripts -->
+  <!-- SlimSelect JS -->
+  <script src="js/slim-select.js"></script>
+
+  <!-- pixelit.js e main.js -->
+  <script src="js/pixelit.min.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>
